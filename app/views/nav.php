@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">El rincon del musico</a>
+                <a class="navbar-brand page-scroll" href="<?=URL::to('/'); ?>">El rincon del musico</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,13 +54,13 @@
                         <a class="page-scroll" href="catalogo">Catalogo</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Ofertas</a>
+                        <a class="page-scroll" href="ofertas">Ofertas</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Carrito</a>
+                        <a class="page-scroll" href="carrito">Carrito</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Sobre Nosotros</a>
+                        <a class="page-scroll" href="contacto">Sobre Nosotros</a>
                     </li>
                 </ul>
             </div>
