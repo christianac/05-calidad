@@ -17,6 +17,10 @@ Route::get('/', function()
 });
 
 Route::controller('catalogo', 'CatalogoController');
-
-Route::get('categoria/{id}', 'CategoriaController@mostrar');
+Route::controller('admin', 'LoginAdminController');
+/*jjojojo*/
+Route::get('sub_categoria/{id}', 'SubCategoriaController@mostrar');
+Route::get('productos/{id}', 'ProductosController@mostrar');
+Route::post('prod_detalles/add_cart', 'ProdDetalleController@store');
+Route::get('prod_detalles/{id}', 'ProdDetalleController@index');
 

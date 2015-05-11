@@ -9,7 +9,7 @@
 
             	@foreach($categorias as $categoria)					
                 	<div class="col-lg-3 col-sm-4">
-                	    <a href="categoria/{{$categoria->cod_categoria}}" class="portfolio-box">
+                	    <a href="<?=URL::to('sub_categoria/'.$categoria->cod_categoria.''); ?>" class="portfolio-box">
                 	        <img src="img/portfolio/{{$categoria->imagen}}" class="img-responsive" alt="">
                 	        <div class="portfolio-box-caption">
                 	            <div class="portfolio-box-caption-content">

@@ -44,23 +44,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">El rincon del musico</a>
+                <a class="navbar-brand page-scroll" href="<?=URL::to('/'); ?>">El rincon del musico</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="catalogo">Catalogo</a>
+                        <a class="page-scroll" href="<?=URL::to('catalogo'); ?>">Catalogo</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Ofertas</a>
+                        <a class="page-scroll" href="<?=URL::to('ofertas'); ?>">Ofertas</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Carrito</a>
+                        <a class="page-scroll" href="<?=URL::to('carrito'); ?>">Carrito</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Sobre Nosotros</a>
+                        <a class="page-scroll" href="<?=URL::to('contacto'); ?>">Sobre Nosotros</a>
                     </li>
                 </ul>
             </div>

@@ -8,18 +8,15 @@
        		<div class="row">
        			<div class="span9">
        				<ul class="product-list">
-       					@foreach($productos as $producto)	
+       					@foreach($sub_categorias as $sub_categoria)	
        					<li class="standard isotope-item" data-price="58">
-        					<a href="product.html" title="Lisette Dress">
+        					<a href="<?=URL::to('productos/'.$sub_categoria->cod_sub_categoria.''); ?>" title="{{$sub_categoria->subcategoria}}">
         					    <div class="image">
-        					        <img class="primary" src="<?=URL::to('img/li.jpg'); ?>" alt="Lisette Dress">
+        					        <img class="primary" src="<?=URL::to('img/sc/'.$sub_categoria->imagen.''); ?>" alt="Lisette Dress">
         					    </div>
 					
         					    <div class="title">
-        					        <div class="prices">
-        					            <span class="price">£58.00</span>
-        					        </div>
-        					        <h3>Lisette Dress</h3>
+        					        <h3>{{$sub_categoria->subcategoria}}</h3>
         					    </div>
 					
         					</a>
