@@ -8,15 +8,21 @@
        		<div class="row">
        			<div class="span9">
        				<ul class="product-list">
-       					@foreach($sub_categorias as $sub_categoria)	
+       					@foreach($productos as $producto)	
        					<li class="standard isotope-item" data-price="58">
-        					<a href="<?=URL::to('productos/'.$sub_categoria->cod_sub_categoria.''); ?>" title="{{$sub_categoria->subcategoria}}">
+        					<a href="<?=URL::to('prod_detalles/'.$producto->cod_producto.''); ?>" title="">
         					    <div class="image">
-        					        <img class="primary" src="<?=URL::to('img/sc/'.$sub_categoria->imagen.''); ?>" alt="Lisette Dress">
+        					        <img class="primary" src="<?=URL::to('img/sc/'.$producto->imagen.''); ?>" alt="">
         					    </div>
 					
         					    <div class="title">
-        					        <h3>{{$sub_categoria->subcategoria}}</h3>
+        					        <h3>{{$producto->nom_producto}}</h3>
+                          <div class="prices">
+                            @if($producto->oferta=="SI")
+                            <del class="base">{{$producto->precio_normal}}</del>
+                            @endif
+                            <span class="price">{{$producto->precio_oferta}}</span>
+                          </div>
         					    </div>
 					
         					</a>

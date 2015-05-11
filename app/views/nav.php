@@ -51,16 +51,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="catalogo">Catalogo</a>
+                        <a class="page-scroll" href="<?=URL::to('catalogo'); ?>">Catalogo</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="ofertas">Ofertas</a>
+                        <a class="page-scroll" href="<?=URL::to('ofertas'); ?>">Ofertas</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="carrito">Carrito</a>
+                        <a class="page-scroll" href="<?=URL::to('carrito'); ?>">Carrito</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="contacto">Sobre Nosotros</a>
+                        <a class="page-scroll" href="<?=URL::to('contacto'); ?>">Sobre Nosotros</a>
                     </li>
                 </ul>
             </div>
