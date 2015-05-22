@@ -6,7 +6,8 @@
             <input type="text" name="user">
             <label for="password">Contraseña</label>
             <input type="password" name="password">
-            <input type="submit" value="entrar">
+            <input type="submit" class="btn btn-success" value="Entrar">
+            <a href="<?=URL::to('registrarse'); ?>"><input type="button" class="btn btn-info" value="Registrarse"></a>
         </form>
     </section>
 

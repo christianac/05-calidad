@@ -43,7 +43,7 @@
                             <tr><td></td>
                              <td></td>
                            <td>Subtotal</td>                           
-                           <td><?php echo $total ?></td></tr>
+                           <td><?php echo $sTotal = $total - ($total*0.18); ?></td></tr>
 
                            <tr><td></td>
                              <td></td>
@@ -53,8 +53,12 @@
                            <tr><td></td>
                              <td></td>
                            <td>Total a pagar:</td>                           
-                           <td><?php echo $total + $vIgv; ?></td></tr>
-
+                           <td><?php echo $sTotal + $vIgv; ?></td></tr>
+    
+                          <tr><td></td>
+                             <td></td>
+                           <td></td>                         
+                           <td><a href=""><button type="button" class="btn btn-danger">Ordenar pedido</button></a></td></tr>
                           </tbody>
                         </table>
        			</div>

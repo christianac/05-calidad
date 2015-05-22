@@ -89,7 +89,7 @@ Route::get('productos/{id}', 'ProductosController@mostrar');
 Route::post('prod_detalles/add_cart', 'ProdDetalleController@addCart');
 Route::get('carrito/d/{id}', function($id){
       Cart::remove($id);
-      return View::make('carro');
+      return Redirect::to('carrito');
 });
 Route::get('carrito', function(){
        return View::make('carro');

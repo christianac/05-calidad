@@ -28,7 +28,7 @@ class ProdDetalleController extends BaseController {
                 else{
                     Cart::add(Input::get('id'), $detalles->nom_producto, $num, $detalles->precio_normal);
                 }
-                return View::make('carro');
+                return Redirect::to('carrito');
                 }
         }
         else{
