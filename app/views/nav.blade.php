@@ -8,8 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>El rincon del musico</title>
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-store" />
+    <meta http-equiv="cache-control" content="must-revalidate" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>GMAR Materiales Electronicos</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="<?=URL::to('css/bootstrap.css'); ?>" type="text/css">
@@ -44,9 +50,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="<?=URL::to('/'); ?>">El rincon del musico</a>
+                <a class="navbar-brand page-scroll" href="<?=URL::to('/'); ?>">GMAR Materiales Electronicos</a>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -56,12 +61,29 @@
                     <li>
                         <a class="page-scroll" href="<?=URL::to('ofertas'); ?>">Ofertas</a>
                     </li>
+                    @if(Auth::check())
                     <li>
                         <a class="page-scroll" href="<?=URL::to('carrito'); ?>">Carrito</a>
                     </li>
+                    @endif
+                    @if(!Auth::check())
+                    <li>
+                        <a class="page-scroll" href="<?=URL::to('login_usuario'); ?>">Iniciar Sesión</a>
+                    </li>
+                    @endif
                     <li>
                         <a class="page-scroll" href="<?=URL::to('contacto'); ?>">Sobre Nosotros</a>
                     </li>
+                    @if(Auth::check())
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-user"></i> anuhar381 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="<?=URL::to('logout'); ?>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                    </li>
+                    @endif
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

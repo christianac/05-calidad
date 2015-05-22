@@ -1,13 +1,13 @@
 <?php
 
-class LoginAdminController extends BaseController {
+class LoginUsuarioController extends BaseController {
 
 	public $restful=true;
 	public function get_index(){
 		if(Auth::user()){
-			return Redirect::to('panel_admin');
+			return Redirect::to('/');
 		}
-			return View::make('admin');
+			return View::make('login_usuario');
 	}
 
 	public function post_index()
@@ -18,10 +18,10 @@ class LoginAdminController extends BaseController {
 		);
 		if(Auth::attempt($userdata, true))
 		{
-			return Redirect::to('panel_admin');
+			return Redirect::to('catalogo');
 		}
 		else{
-			return Redirect::to('login_a')->with('error_login', true);
+			return Redirect::to('login_usuario')->with('error_login', true);
 		}
 	}
 }

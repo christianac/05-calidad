@@ -5,7 +5,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Admin extends Eloquent implements UserInterface, RemindableInterface {
+class Group extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
@@ -14,7 +14,18 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'usuarios';
+
+	public function permissions()
+	{
+	    return $this->belongsToMany('permission');
+	}
+
+	public function hasPermission($permission)
+	{
+	    return in_array($permission, array_fetch($this->permissions->toArray(), 'nombre'));
+	}
+
+	protected $table = 'groups';
 
 	/**
 	 * The attributes excluded from the model's JSON form.

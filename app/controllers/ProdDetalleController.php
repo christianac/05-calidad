@@ -8,10 +8,11 @@ class ProdDetalleController extends BaseController {
 		return View::make('producto_detalle')->with('detalles', $detalles);
 	}
 
-	public function store(){
-        if(!Auth::check()){
+	public function addCart(){
+        $detalles = DB::table('productos')->where('cod_producto','=', Input::get('id'))->remember(10)->first();
+        if(Auth::check()){
     		$rules = array(
-                'num'   => 'required|alpha_dash',
+                'num'   => 'required',
             );
             $validator = Validator::make(Input::all(), $rules);
 
@@ -20,13 +21,18 @@ class ProdDetalleController extends BaseController {
                     ->withErrors($validator)
                     ->withInput(Input::except('password'));
             } else {
-                $codigo = Input::get('num');
-                $array = array('id' => $codigo);
-                Session::put('car2t', $array);
-                //Session::push('user.teams', 'developers');
-                //Session::flash('message', 'Successfully created user!');
-                var_dump(Session::all());
+                $num = Input::get('num');
+                if($detalles->oferta=="SI"){
+                    Cart::add(Input::get('id'), $detalles->nom_producto, $num, $detalles->precio_oferta);
                 }
+                else{
+                    Cart::add(Input::get('id'), $detalles->nom_producto, $num, $detalles->precio_normal);
+                }
+                return View::make('carro');
+                }
+        }
+        else{
+            return Redirect::to('login_usuario')->with('detalles', $detalles);
         }
 
 	}

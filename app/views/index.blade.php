@@ -3,10 +3,10 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>Your Favorite Source of Free Bootstrap Themes</h1>
+                <h1>MATERIALES ELECTRONICOS GMAR</h1>
                 <hr>
-                <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                <p>GMAR Corporation SAC comercializa materiales electricos, repuestos y accesorios de todo tipo relacionado a instalaciones electricas. Contamos con un amplio stock de productos para abastecer en forma oportuna y eficiente a nuestros clientes logrando su satisfacción total</p>
+                <a href="<?=URL::to('catalogo'); ?>" class="btn btn-primary btn-xl page-scroll">Ver el catalogo</a>
             </div>
         </div>
     </header>

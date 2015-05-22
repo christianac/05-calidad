@@ -48,9 +48,9 @@
                     <label>Cantidad: </label>
                     <div class="row">
                       <div class="col-xs-2">
-                    <input type="text" class="form-control" name="num"></div>
+                    <input type="text" class="form-control" name="num" value="1"></div>
                     </div>
-                    
+                    <input type="hidden" name="id" value="<?php echo $detalles->cod_producto; ?>">
                     </div>
                   </div>
                   <div class="add-to-cart">
