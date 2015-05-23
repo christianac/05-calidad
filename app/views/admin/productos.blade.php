@@ -27,26 +27,71 @@
                                 <div class="tab-content">
                                   <div class="tab-pane active" id="product">
                                     <div class="details">
-                                      <h1>a</h1>
-                                      <div class="prices">
-                                      </div>
-                                      <div class="short-description">
-                                        <div class="form-group">  
-                                          <form action="add_cart" method="post">
-                                        <label>Cantidad: </label>
-                                        <div class="row">
-                                          <div class="col-xs-2">
-                                        <input type="text" class="form-control" name="num"></div>
-                                        </div>
-                                        
-                                        </div>
-                                      </div>
-                                      <div class="add-to-cart">
-                                        <i class="icon-plus"></i><input class="btn btn-primary btn-large" type="submit" value="&nbsp;Añadir al carro">
-                                          </form>                             
-                                      </div>
+                                      
+                                            <h1>Crear Usuarios</h1>
+                                           @if(Session::has('message'))
+                                           <div class="alert alert-danger">
+                                              <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                              <strong>{{Session::get('message')}}</strong>
+                                            </div>
+                                           @endif
+                                           @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                              <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                              <strong>Por favor corrige los siguentes errores:</strong>
+                                              <ul>
+                                              @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                              @endforeach
+                                              </ul>
+                                            </div>
+                                          @endif
+
+                                           <?php
+ /*                                          $user = User::find(1);
+                                           if( $user->group->id == 1 )
+{
+   echo 'D:' ;
+}*/
+                                           ?>
+                                              {{ Form::open(array('url' => 'panel_admin/usuarios', 'method' => 'POST'), array('role' => 'form')) }}
+
+                                                <div class="row">
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('full_name', 'Nombre completo') }}
+                                                    {{ Form::text('full_name', null, array('placeholder' => 'Introduce tu nombre y apellido', 'class' => 'form-control')) }}        
+                                                  </div>
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('email', 'Dirección de E-mail') }}
+                                                    {{ Form::text('email', null, array('placeholder' => 'Introduce tu E-mail', 'class' => 'form-control')) }}
+                                                  </div>
+                                                </div>
+                                                <div class="row">
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('usuario', 'Nombre de Usuario') }}
+                                                    {{ Form::text('usuario', null, array('placeholder' => '', 'class' => 'form-control')) }}        
+                                                  </div>
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('estado', 'Estado') }}
+                                                    {{ Form::radio('activo', 'A', true) }} Activo
+                                                    {{ Form::radio('activo', 'I') }} Inactivo
+                                                  </div>
+                                                </div>
+                                                <div class="row">
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('password', 'Contraseña') }}
+                                                    {{ Form::password('password', array('class' => 'form-control')) }}
+                                                  </div>
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('password_confirmation', 'Confirmar contraseña') }}
+                                                    {{ Form::password('password_confirmation', array('class' => 'form-control')) }}
+                                                  </div>
+                                                </div>
+                                                {{ Form::button('Crear usuario', array('type' => 'submit', 'class' => 'btn btn-primary')) }}    
+                                            {{ Form::close() }}
                                     </div>
                                   </div>
+
                                   <div class="tab-pane" id="return">
                                      <div class="row">
                     

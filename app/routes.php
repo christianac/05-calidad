@@ -13,12 +13,15 @@
 
 Route::get('/', function()
 {
-		return View::make('index');
+            $categorias = DB::table('categoria_productos')->get();
+            return View::make('index')->with('categorias', $categorias);
+		
 });   
-/*Route::get('panel_admin', function()
+Route::get('registrarse', function()
 {
-		return View::make('admin/panel_admin');
-});*/
+		return View::make('registro');
+});
+Route::post('registrarse', 'RegistrarClienteController@guardar');
 
 Route::controller('catalogo', 'CatalogoController');
 // ACA solo para administrador
