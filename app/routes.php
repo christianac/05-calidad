@@ -67,6 +67,8 @@ Route::group(['prefix' => 'panel_admin'], function()
             	return View::make('admin/sub_categorias')->with('sub_categorias' , $sub_categorias);
             });
             Route::get('/productos', function(){
+                  $categorias = DB::table('categoria_productos')->get();
+                  $sub_categorias = DB::table('sub_categoria_productos')->get();
                   $productos = DB::table('productos')
                                     ->join('categoria_productos', 'productos.cod_categoria', '=', 'categoria_productos.cod_categoria')
                                     ->join('sub_categoria_productos', 'productos.cod_sub_categoria', '=', 'sub_categoria_productos.cod_sub_categoria')
@@ -74,7 +76,7 @@ Route::group(['prefix' => 'panel_admin'], function()
                                                 'sub_categoria_productos.subcategoria as scp',
                                                 'productos.nom_producto as nombre_pro',
                                                 'productos.*')->get();
-                  return View::make('admin/productos')->with('productos' , $productos);
+                  return View::make('admin/productos')->with('productos' , $productos)->with('categorias' , $categorias)->with('sub_categorias' , $sub_categorias);
             });
             Route::get('/logout', function(){
             	Auth::logout();

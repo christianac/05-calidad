@@ -28,7 +28,7 @@
                                   <div class="tab-pane active" id="product">
                                     <div class="details">
                                       
-                                            <h1>Crear Usuarios</h1>
+                                            <h1>Registrar producto</h1>
                                            @if(Session::has('message'))
                                            <div class="alert alert-danger">
                                               <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -54,40 +54,87 @@
    echo 'D:' ;
 }*/
                                            ?>
-                                              {{ Form::open(array('url' => 'panel_admin/usuarios', 'method' => 'POST'), array('role' => 'form')) }}
+                                              {{ Form::open(array('url' => 'panel_admin/reg_prod', 'method' => 'POST'), array('role' => 'form')) }}
 
                                                 <div class="row">
                                                   <div class="form-group col-md-4">
-                                                    {{ Form::label('full_name', 'Nombre completo') }}
-                                                    {{ Form::text('full_name', null, array('placeholder' => 'Introduce tu nombre y apellido', 'class' => 'form-control')) }}        
+                                                    {{ Form::label('categoria', 'Categoria') }}
+                                                    <select name="categoria" class="form-control">
+                                                      @foreach ($categorias as $categoria)
+                                                            <option value="{{$categoria->cod_categoria}}">{{$categoria->categoria}}</option>
+                                                      @endforeach
+                                                    </select>                    
                                                   </div>
                                                   <div class="form-group col-md-4">
-                                                    {{ Form::label('email', 'Dirección de E-mail') }}
-                                                    {{ Form::text('email', null, array('placeholder' => 'Introduce tu E-mail', 'class' => 'form-control')) }}
+                                                    {{ Form::label('sub_cat', 'Sub Categoria') }}
+                                                    <select name="sub_cat" class="form-control">
+                                                       @foreach ($sub_categorias as $sub_categoria)
+                                                            <option value="{{$sub_categoria->cod_sub_categoria}}">{{$sub_categoria->subcategoria}}</option>
+                                                        @endforeach
+                                                    </select> 
                                                   </div>
                                                 </div>
                                                 <div class="row">
                                                   <div class="form-group col-md-4">
-                                                    {{ Form::label('usuario', 'Nombre de Usuario') }}
-                                                    {{ Form::text('usuario', null, array('placeholder' => '', 'class' => 'form-control')) }}        
+                                                    {{ Form::label('nombre', 'Nombre:') }}
+                                                    {{ Form::text('nombre', null, array('placeholder' => '', 'class' => 'form-control')) }}        
                                                   </div>
                                                   <div class="form-group col-md-4">
-                                                    {{ Form::label('estado', 'Estado') }}
-                                                    {{ Form::radio('activo', 'A', true) }} Activo
-                                                    {{ Form::radio('activo', 'I') }} Inactivo
+                                                    {{ Form::label('descripcion', 'Descripcion') }}
+                                                    {{ Form::textarea('descripcion',null , array('placeholder' => '', 'class' => 'form-control')) }}
+                                                  </div>
+                                                </div> 
+                                                <div class="row">
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('oferta', 'Oferta') }}
+                                                    {{ Form::radio('oferta', 'SI', true) }} Si
+                                                    {{ Form::radio('oferta', 'NO') }} No
+                                                  </div>
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('pre_ofe', 'Precio Oferta') }}
+                                                    {{ Form::text('pre_ofe', null, array('class' => 'form-control')) }}
+                                                  </div>
+                                                </div>
+
+                                                <div class="row">
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('pre_nor', 'Precio Normal') }}
+                                                    {{ Form::text('pre_nor', null, array('class' => 'form-control')) }}
+                                                  </div>
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('pre_ofe', 'Precio Oferta') }}
+                                                    {{ Form::text('pre_ofe', null, array('class' => 'form-control')) }}
                                                   </div>
                                                 </div>
                                                 <div class="row">
                                                   <div class="form-group col-md-4">
-                                                    {{ Form::label('password', 'Contraseña') }}
-                                                    {{ Form::password('password', array('class' => 'form-control')) }}
+                                                    {{ Form::label('novedad', 'Novedad') }}
+                                                    {{ Form::radio('novedad', 'SI', true) }} Si
+                                                    {{ Form::radio('novedad', 'NO') }} No
                                                   </div>
                                                   <div class="form-group col-md-4">
-                                                    {{ Form::label('password_confirmation', 'Confirmar contraseña') }}
-                                                    {{ Form::password('password_confirmation', array('class' => 'form-control')) }}
+                                                    {{ Form::label('imagen', 'Imagen') }}
+                                                    {{ Form::file('imagen', null, array('class' => 'form-control')) }}
                                                   </div>
                                                 </div>
-                                                {{ Form::button('Crear usuario', array('type' => 'submit', 'class' => 'btn btn-primary')) }}    
+                                                <div class="row">
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('fic_tec', 'Ficha tecnica') }}
+                                                    {{ Form::file('fic_tec', null, array('class' => 'form-control')) }}
+                                                  </div>
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('video', 'Video') }}
+                                                    {{ Form::text('video', null, array('class' => 'form-control')) }}
+                                                  </div>
+                                                </div>
+                                                <div class="row">
+                                                  <div class="form-group col-md-4">
+                                                    {{ Form::label('estado', 'estado') }}
+                                                    {{ Form::radio('estado', 'A', true) }} Activo
+                                                    {{ Form::radio('estado', 'I') }} Inactivo
+                                                  </div>
+                                                </div>
+                                                {{ Form::button('Crear producto', array('type' => 'submit', 'class' => 'btn btn-primary')) }}    
                                             {{ Form::close() }}
                                     </div>
                                   </div>
